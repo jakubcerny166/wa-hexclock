@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Hex Clock</title>
+<style type="text/css">
+body{
+height:100%;
+}
+#bg{
+color: white;
+font-size: 150px;
+position: relative;
+margin-top: 20%;
+text-align: center;
+}
+</style>
+<script type="text/javascript">
+function displayTime(){
+var date;
+var hours, minutes, seconds;
+var color;
+date = new Date();
+hour = date.getHours();
+minutes = date.getMinutes();
+seconds = date.getSeconds();
+
+if(hour <= 9) hour = '0' + hour;
+if(minutes <= 9) minutes = '0' + minutes;
+if(seconds <= 9) seconds = '0' + seconds;
+
+color = '#' +hour+minutes+seconds;
+document.body.style.background = color;
+document.getElementById("bg").innerHTML = color;
+
+setTimeout(displayTime, 1000);
+}
+
+window.onload = function() {
+displayTime();
+}
+</script>
+</head>
+<body>
+<div id="bg">
+</div>
+</body>
+</html>
